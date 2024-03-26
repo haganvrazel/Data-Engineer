@@ -30,3 +30,10 @@ def test_calculate_stats_complex():
     ]
     assert calculate_stats(trades_by_symbol) == expected_output
 
+
+def test_calculate_stats_empty():
+    trades_by_symbol = {}
+    expected_output = []
+
+    assert calculate_stats(trades_by_symbol) == expected_output
+
