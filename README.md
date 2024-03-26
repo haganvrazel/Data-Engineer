@@ -19,16 +19,19 @@ The project implements a trading data processing system that reads trade data fr
    - Utilizes Python's csv library to parse the CSV file efficiently.
    - Uses defaultdict(list) for intuitive data structuring.
 
+   ```python
 2. calculate_stats(trades_by_symbol):
+   ```
    - Computes various statistics for each symbol based on the trade data.
    - Calculates metrics such as the maximum time gap, total volume, weighted average price, and maximum price.
    - Implements sorting by symbol ascending to maintain consistency.
 
+   ```python
 3. write_output(output_file, symbol_stats):
    - Writes the computed statistics for each symbol to the output CSV file.
    - Sorts the data by symbol as per requirement.
-
-Explanation:
+   ```
+### Explanation:
 
 - Modular Design: The project is structured into modular functions to have separation of concerns, enabling easier testing, debugging, and maintenance.
 - Readability: Organization of code and variables follows the flow of natural English language resulting variable having a self-explanatory description.
