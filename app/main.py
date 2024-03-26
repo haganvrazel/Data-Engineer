@@ -21,7 +21,12 @@ def calculate_stats(trades_by_symbol):
 
     for symbol, trades in trades_by_symbol.items():
         trades.sort(key=itemgetter(0))  # Sorting trades by timestamp
-        max_time_gap = max(trades[i+1][0] - trades[i][0] for i in range(len(trades) - 1))
+
+        if len(trades) == 1:
+            max_time_gap = 0
+        else:
+            max_time_gap = max(trades[i+1][0] - trades[i][0] for i in range(len(trades) - 1))
+
         total_volume = sum(trade[1] for trade in trades)
         weighted_avg_price = sum(quantity * price for _, quantity, price in trades) // total_volume
         max_price = max(trade[2] for trade in trades)
