@@ -38,6 +38,5 @@ def calculate_stats(trades_by_symbol):
 def write_output(output_file, symbol_stats):
     with open(output_file, 'w', newline='') as csvfile:
         output_writer = csv.writer(csvfile)
-        output_writer.writerow(['Symbol', 'MaxTimeGap', 'Volume', 'WeightedAveragePrice', 'MaxPrice'])
         for symbol_stat in symbol_stats:
             output_writer.writerow(symbol_stat)
