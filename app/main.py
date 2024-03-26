@@ -25,7 +25,7 @@ def calculate_stats(trades_by_symbol):
         if len(trades) == 1:
             max_time_gap = 0
         else:
-            max_time_gap = max(trades[i+1][0] - trades[i][0] for i in range(len(trades) - 1))
+            max_time_gap = max(trades[i + 1][0] - trades[i][0] for i in range(len(trades) - 1))
 
         total_volume = sum(trade[1] for trade in trades)
         weighted_avg_price = sum(quantity * price for _, quantity, price in trades) // total_volume
@@ -33,3 +33,11 @@ def calculate_stats(trades_by_symbol):
         symbol_stats.append((symbol, max_time_gap, total_volume, weighted_avg_price, max_price))
 
     return sorted(symbol_stats, key=itemgetter(0))  # Sorting by ticker symbol
+
+
+def write_output(output_file, symbol_stats):
+    with open(output_file, 'w', newline='') as csvfile:
+        output_writer = csv.writer(csvfile)
+        output_writer.writerow(['Symbol', 'MaxTimeGap', 'Volume', 'WeightedAveragePrice', 'MaxPrice'])
+        for symbol_stat in symbol_stats:
+            output_writer.writerow(symbol_stat)
