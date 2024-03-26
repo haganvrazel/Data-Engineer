@@ -1,4 +1,5 @@
 import csv
+import os
 from collections import defaultdict
 from operator import itemgetter
 
@@ -40,3 +41,15 @@ def write_output(output_file, symbol_stats):
         output_writer = csv.writer(csvfile)
         for symbol_stat in symbol_stats:
             output_writer.writerow(symbol_stat)
+
+
+if __name__ == "__main__":
+    # Getting absolute path to root directory
+    root_dir = os.path.dirname(os.path.abspath(__file__))
+
+    input_file = os.path.join(root_dir, '..', 'input.csv')
+    output_file = 'output.csv'
+
+    trades_by_symbol = process_trades(input_file)
+    symbol_stats = calculate_stats(trades_by_symbol)
+    write_output(output_file, symbol_stats)
