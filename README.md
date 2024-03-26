@@ -1,4 +1,4 @@
-### Quantlab Trading Project ###
+### Quantlab Trading Project
 
 Ensure input.csv is located in the root directory of your project when testing.
 
@@ -6,13 +6,15 @@ Ensure input.csv is located in the root directory of your project when testing.
 pip install pytest
 ```
 
-Approach Overview
+### Approach Overview
 
 The project implements a trading data processing system that reads trade data from an input CSV file, calculates various statistics for each symbol, and writes the results to an output CSV file. The logic is split into three main functions: reading trade data from a file, calculating statistics for each symbol, and writing the results to an output file.
 
-Key Components:
+### Key Components:
 
+   ```python
 1. process_trades(input_file):
+   ```
    - Reads trade data from the input CSV file and organizes it into a dictionary where each symbol maps to a list of trades.
    - Utilizes Python's csv library to parse the CSV file efficiently.
    - Uses defaultdict(list) for intuitive data structuring.
