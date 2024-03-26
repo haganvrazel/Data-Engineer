@@ -2,7 +2,9 @@
 
 Ensure input.csv is located in the root directory of your project when testing.
 
+```bash
 pip install pytest
+```
 
 Approach Overview
 
