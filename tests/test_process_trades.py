@@ -19,7 +19,7 @@ def initialize_input_file():
     os.remove(input_file)
 
 
-# test cases
+# tests cases
 def test_process_trades(initialize_input_file):
     expected_output = {
         'aaa': [(1234567, 10, 12), (1234568, 20, 15)],
@@ -27,9 +27,9 @@ def test_process_trades(initialize_input_file):
     }
     actual_output = process_trades(input_file)
 
-    # debugging purposes
-    print("Expected output: ", expected_output)
-    print("Actual output: ", actual_output)
+    # # debugging purposes
+    # print("Expected output: ", expected_output)
+    # print("Actual output: ", actual_output)
 
     assert actual_output == expected_output
 

@@ -1,5 +1,6 @@
 import csv
 from collections import defaultdict
+from operator import itemgetter
 
 
 def process_trades(input_file):
@@ -13,3 +14,17 @@ def process_trades(input_file):
             trades_by_symbol[symbol].append(trade)
 
     return trades_by_symbol
+
+
+def calculate_stats(trades_by_symbol):
+    symbol_stats = []
+
+    for symbol, trades in trades_by_symbol.items():
+        trades.sort(key=itemgetter(0))  # Sorting trades by timestamp
+        max_time_gap = max(trades[i+1][0] - trades[i][0] for i in range(len(trades) - 1))
+        total_volume = sum(trade[1] for trade in trades)
+        weighted_avg_price = sum(quantity * price for _, quantity, price in trades) // total_volume
+        max_price = max(trade[2] for trade in trades)
+        symbol_stats.append((symbol, max_time_gap, total_volume, weighted_avg_price, max_price))
+
+    return sorted(symbol_stats, key=itemgetter(0))  # Sorting by ticker symbol
