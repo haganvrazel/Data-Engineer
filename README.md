@@ -28,9 +28,9 @@ The project implements a trading data processing system that reads trade data fr
 
    ```python
 3. write_output(output_file, symbol_stats):
+   ```
    - Writes the computed statistics for each symbol to the output CSV file.
    - Sorts the data by symbol as per requirement.
-   ```
 ### Explanation:
 
 - Modular Design: The project is structured into modular functions to have separation of concerns, enabling easier testing, debugging, and maintenance.
