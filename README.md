@@ -1,4 +1,4 @@
-### Quantlab Trading Project
+### Trading Project
 
 Ensure input.csv is located in the root directory of your project when testing.
 
